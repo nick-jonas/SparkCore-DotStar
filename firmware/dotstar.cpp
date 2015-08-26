@@ -35,8 +35,13 @@
 #include "dotstar.h"
 
 // fast pin access
-#define pinLO(_pin) (PIN_MAP[_pin].gpio_peripheral->BRR = PIN_MAP[_pin].gpio_pin)
-#define pinHI(_pin) (PIN_MAP[_pin].gpio_peripheral->BSRR = PIN_MAP[_pin].gpio_pin)
+
+// #define pinLO(_pin) (PIN_MAP[_pin].gpio_peripheral->BRR = PIN_MAP[_pin].gpio_pin)
+#define pinLO(_pin) pinResetFast(_pin);
+
+// #define pinHI(_pin) (PIN_MAP[_pin].gpio_peripheral->BSRR = PIN_MAP[_pin].gpio_pin)
+#define pinHI(_pin) pinSetFast(_pin);
+
 #define pinSet(_pin, _hilo) (_hilo ? pinHI(_pin) : pinLO(_pin))
 
 #define spi_out(n) (void)SPI.transfer(n)
