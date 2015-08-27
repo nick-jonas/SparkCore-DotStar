@@ -32,7 +32,7 @@
   License along with NeoPixel.  If not, see <http://www.gnu.org/licenses/>.
   ------------------------------------------------------------------------*/
 
-#include "dotstar.h"
+#include "dotstar-photon-particle.h"
 #include "fast_pin.h"
 
 // fast pin access
